@@ -7,40 +7,52 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <section class="projects-3d">
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo"><h2>Riti Sharma</h2></div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="education.html" class="nav-link">Education</a></li>
+                <li class="nav-item"><a href="experience.html" class="nav-link">Experience</a></li>
+                <li class="nav-item"><a href="research.html" class="nav-link">Research</a></li>
+                <li class="nav-item"><a href="creative.html" class="nav-link">Creative</a></li>
+                <li class="nav-item"><a href="future.html" class="nav-link">Future</a></li>
+                <li class="nav-item"><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+        </div>
+    </nav>
+
+    <section class="projects-3d" style="padding-top: 120px;">
         <div class="container">
-            <div class="projects-3d-header">
-                <div>
-                    <p class="section-eyebrow">3D Printing</p>
-                    <h1 class="section-title">Personal Prints</h1>
-                    <p class="section-subtitle">Selected prints that blend engineering detail with playful experimentation.</p>
-                </div>
-                <a class="btn btn-secondary" href="index.html">Back to Home</a>
-            </div>
+            <h2 class="section-title">3D Printing</h2>
 
             <div class="project-gallery">
-                <div class="project-card-3d">
+                <a href="printing-rx8.html" class="project-card-3d project-card-link">
                     <div class="project-card-head">
                         <h3 class="project-card-title">Mazda RX-8 Scale Model</h3>
-                        <p class="project-meta">PLA · Multi-part assembly · Painted finish</p>
                     </div>
-                    <p class="project-card-desc">
-                        Modeled and printed a detailed RX-8 body, then post-processed with sanding and paint for an accurate finish. Focused on panel alignment and surface prep to preserve the rotary coupes lines.
-                    </p>
-                </div>
+                </a>
 
-                <div class="project-card-3d">
+                <a href="printing-chess.html" class="project-card-3d project-card-link">
                     <div class="project-card-head">
                         <h3 class="project-card-title">Harry Potter Chess Set</h3>
-                        <p class="project-meta">PLA · Fine-detail print · Hand-assembled</p>
                     </div>
-                    <p class="project-card-desc">
-                        Printed a themed chess set with character-inspired pieces. Tuned layer height and supports for crisp silhouettes, then assembled and finished for tabletop play.
-                    </p>
-                </div>
+                </a>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="creative.html" class="btn btn-secondary">Back to Creative</a>
             </div>
         </div>
     </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Riti Sharma. Made with 💜 and lots of coffee.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
