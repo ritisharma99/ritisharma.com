@@ -1,6 +1,6 @@
-/// <reference types="@nuxtjs/google-fonts" />
 /// <reference types="@nuxtjs/tailwindcss" />
 /// <reference types="@nuxt/content" />
+/// <reference types="@nuxtjs/google-fonts" />
 /// <reference types="@nuxt/image" />
 /// <reference types="@nuxt/devtools" />
 /// <reference types="@nuxt/telemetry" />
