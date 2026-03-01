@@ -47,14 +47,11 @@
           <span class="w-10 h-10 rounded-xl bg-brand-teal/10 flex items-center justify-center">🔬</span>
           Research Journey
         </h2>
-        <div class="space-y-6 border-l-2 border-slate-700 pl-8 ml-4">
+        <div class="space-y-3 border-l-2 border-slate-700 pl-8 ml-4">
           <ExperienceItem
             v-for="item in experienceByCategory.research"
             :key="item._path"
-            :date="item.date_range"
-            :title="item.title"
-            :org="item.org"
-            :description="item.description"
+            :doc="item"
           />
         </div>
       </div>
@@ -64,14 +61,11 @@
           <span class="w-10 h-10 rounded-xl bg-brand-teal/10 flex items-center justify-center">📚</span>
           Teaching & Mentoring
         </h2>
-        <div class="space-y-6 border-l-2 border-slate-700 pl-8 ml-4">
+        <div class="space-y-3 border-l-2 border-slate-700 pl-8 ml-4">
           <ExperienceItem
             v-for="item in experienceByCategory.teaching"
             :key="item._path"
-            :date="item.date_range"
-            :title="item.title"
-            :org="item.org"
-            :description="item.description"
+            :doc="item"
           />
         </div>
       </div>
@@ -81,14 +75,11 @@
           <span class="w-10 h-10 rounded-xl bg-brand-teal/10 flex items-center justify-center">💼</span>
           Internships
         </h2>
-        <div class="space-y-6 border-l-2 border-slate-700 pl-8 ml-4">
+        <div class="space-y-3 border-l-2 border-slate-700 pl-8 ml-4">
           <ExperienceItem
             v-for="item in experienceByCategory.internship"
             :key="item._path"
-            :date="item.date_range"
-            :title="item.title"
-            :org="item.org"
-            :description="item.description"
+            :doc="item"
           />
         </div>
       </div>
