@@ -1,0 +1,110 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "nuxt-app/public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "nuxt-app/content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Cover Image", name: "image", widget: "image", required: false }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "publications"
+    label: "Publications"
+    folder: "nuxt-app/content/publications"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Year", name: "year", widget: "number" }
+      - { label: "Journal / Venue", name: "venue", widget: "string" }
+      - { label: "Status", name: "status", widget: "select", options: ["published", "in review", "preprint"] }
+      - { label: "Link", name: "link", widget: "string", required: false }
+      - { label: "Description", name: "description", widget: "text", required: false }
+
+  - name: "talks"
+    label: "Talks & Presentations"
+    folder: "nuxt-app/content/talks"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Year", name: "year", widget: "number" }
+      - { label: "Conference", name: "conference", widget: "string" }
+      - { label: "Award", name: "award", widget: "string", required: false }
+      - { label: "Poster Image", name: "poster_image", widget: "image", required: false }
+      - { label: "Link", name: "link", widget: "string", required: false }
+      - { label: "Description", name: "description", widget: "text", required: false }
+
+  - name: "experience"
+    label: "Experience"
+    folder: "nuxt-app/content/experience"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Organization", name: "org", widget: "string" }
+      - { label: "Date Range", name: "date_range", widget: "string" }
+      - { label: "Category", name: "category", widget: "select", options: ["research", "teaching", "internship"] }
+      - { label: "Sort Order", name: "order", widget: "number" }
+      - { label: "Description", name: "description", widget: "text" }
+
+  - name: "education"
+    label: "Education"
+    folder: "nuxt-app/content/education"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Degree", name: "title", widget: "string" }
+      - { label: "Field", name: "field", widget: "string" }
+      - { label: "Institution", name: "institution", widget: "string" }
+      - { label: "Location", name: "location", widget: "string" }
+      - { label: "Date Range", name: "date_range", widget: "string" }
+      - { label: "Sort Order", name: "order", widget: "number" }
+      - { label: "Grade", name: "grade", widget: "string", required: false }
+      - { label: "Thesis Title", name: "thesis", widget: "string", required: false }
+      - { label: "Description", name: "description", widget: "text", required: false }
+      - { label: "Emoji Icon", name: "emoji", widget: "string", required: false }
+
+  - name: "creative_projects"
+    label: "Creative Projects"
+    folder: "nuxt-app/content/creative"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Emoji", name: "emoji", widget: "string" }
+      - { label: "Sort Order", name: "order", widget: "number" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "pages"
+    label: "Site Pages"
+    files:
+      - label: "Home / About"
+        name: "home"
+        file: "nuxt-app/content/pages/home.md"
+        fields:
+          - { label: "Hero Title", name: "hero_title", widget: "string" }
+          - { label: "Hero Subtitle", name: "hero_subtitle", widget: "text" }
+          - { label: "About Paragraph 1", name: "about_p1", widget: "text" }
+          - { label: "About Paragraph 2", name: "about_p2", widget: "text" }
+          - { label: "Profile Image", name: "profile_image", widget: "image" }
+      - label: "Future"
+        name: "future"
+        file: "nuxt-app/content/pages/future.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }

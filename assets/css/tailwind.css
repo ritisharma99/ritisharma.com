@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-dark-900 text-slate-200 font-sans antialiased;
+    background-image: radial-gradient(ellipse at 20% 50%, rgba(20, 184, 166, 0.08) 0%, transparent 50%),
+                      radial-gradient(ellipse at 80% 50%, rgba(14, 165, 233, 0.06) 0%, transparent 50%);
+    background-size: 200% 200%;
+    animation: backgroundShift 15s ease infinite;
+  }
+
+  ::selection {
+    @apply bg-brand-teal/30 text-white;
+  }
+
+  a {
+    @apply transition-colors duration-300;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-dark-700/50 backdrop-blur-md border border-slate-700/50 rounded-2xl transition-all duration-300;
+  }
+
+  .glass-card:hover {
+    @apply border-brand-teal/30 shadow-lg shadow-brand-teal/5 -translate-y-1;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-light-teal to-brand-blue;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold gradient-text mb-2;
+  }
+
+  .section-title::after {
+    content: '';
+    @apply block w-16 h-1 bg-gradient-brand rounded-full mt-3;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-8 py-3 bg-gradient-brand text-white font-semibold rounded-full
+           shadow-lg shadow-brand-teal/25 hover:shadow-xl hover:shadow-brand-teal/30
+           hover:-translate-y-0.5 transition-all duration-300;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-8 py-3 border-2 border-brand-teal/50 text-brand-teal
+           rounded-full hover:bg-brand-teal/10 hover:border-brand-teal
+           hover:-translate-y-0.5 transition-all duration-300;
+  }
+
+  .page-header {
+    @apply pt-32 pb-12 text-center;
+  }
+
+  .page-header h1 {
+    @apply text-4xl md:text-5xl font-bold gradient-text mb-4;
+  }
+
+  .page-header p {
+    @apply text-lg text-slate-400 max-w-2xl mx-auto;
+  }
+
+  .back-link {
+    @apply inline-flex items-center gap-2 text-brand-teal hover:text-brand-light-teal transition-colors mt-8;
+  }
+}

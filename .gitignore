@@ -1,0 +1,25 @@
+# Nuxt build output
+nuxt-app/.nuxt
+nuxt-app/.output
+nuxt-app/.data
+
+# Dependencies
+node_modules
+nuxt-app/node_modules
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+.env
+.env.*
+!.env.example
+
+# Editor
+.vscode/settings.json
+.idea/
