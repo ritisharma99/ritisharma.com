@@ -9,3 +9,18 @@
   from = "/admin"
   to = "/admin/index.html"
   status = 200
+
+[[redirects]]
+  from = "/education"
+  to = "/work?tab=education"
+  status = 301
+
+[[redirects]]
+  from = "/experience"
+  to = "/work?tab=experience"
+  status = 301
+
+[[redirects]]
+  from = "/research"
+  to = "/work?tab=research"
+  status = 301

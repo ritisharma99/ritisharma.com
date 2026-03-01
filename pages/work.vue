@@ -22,40 +22,19 @@
     <!-- Education -->
     <div v-show="activeTab === 'education'" class="max-w-5xl mx-auto px-6 pb-20">
       <div class="space-y-8">
-        <div class="glass-card p-8 flex flex-col md:flex-row gap-6">
-          <InstitutionBadge institution="upenn" />
+        <div v-for="item in education" :key="item._path" class="glass-card p-8 flex flex-col md:flex-row gap-6">
+          <InstitutionBadge v-if="institutionKey(item.institution)" :institution="institutionKey(item.institution)!" />
           <div class="flex-1">
-            <span class="text-xs font-semibold uppercase tracking-wider text-brand-teal bg-brand-teal/10 px-3 py-1 rounded-full">Sept 2022 – Present</span>
-            <h3 class="text-xl font-bold text-white mt-3 mb-1">PhD — Mechanical Engineering and Applied Mechanics</h3>
-            <p class="text-brand-teal font-medium mb-3">University of Pennsylvania, USA</p>
-            <p class="text-slate-400 leading-relaxed">
-              <strong class="text-slate-300">Thesis:</strong> Resolving nanoscale fatigue responses in mineralized collagen fibrils (bone) in 3D
+            <span class="text-xs font-semibold uppercase tracking-wider text-brand-teal bg-brand-teal/10 px-3 py-1 rounded-full">{{ item.date_range }}</span>
+            <h3 class="text-xl font-bold text-white mt-3 mb-1">{{ item.title }} — {{ item.field }}</h3>
+            <p class="text-brand-teal font-medium mb-1">{{ item.institution }}, {{ item.location }}</p>
+            <p v-if="item.grade" class="text-sm text-slate-500 mb-3">{{ item.grade }}</p>
+            <p v-if="item.thesis" class="text-slate-300 leading-relaxed">
+              <strong class="text-slate-200">Thesis:</strong> {{ item.thesis }}
             </p>
-            <p class="text-slate-400 mt-2 leading-relaxed">
-              Using synchrotron X-ray tomography at Brookhaven National Laboratory (NSLS-II) to study how bone resists fatigue at the fibril scale.
+            <p v-if="item.description" class="text-slate-400 mt-2 leading-relaxed">
+              {{ item.description }}
             </p>
-          </div>
-        </div>
-
-        <div class="glass-card p-8 flex flex-col md:flex-row gap-6">
-          <InstitutionBadge institution="auckland" />
-          <div class="flex-1">
-            <span class="text-xs font-semibold uppercase tracking-wider text-brand-teal bg-brand-teal/10 px-3 py-1 rounded-full">Jul 2020 – Jul 2021</span>
-            <h3 class="text-xl font-bold text-white mt-3 mb-1">M.Eng (Research) — Bioengineering</h3>
-            <p class="text-brand-teal font-medium mb-1">Auckland Bioengineering Institute, University of Auckland, New Zealand</p>
-            <p class="text-sm text-slate-500 mb-3">First-class honours · Grade A</p>
-            <p class="text-slate-400 leading-relaxed">
-              <strong class="text-slate-300">Thesis:</strong> Impact of mitochondrial organization on cardiac energetics and force dynamics in type-2 diabetes
-            </p>
-          </div>
-        </div>
-
-        <div class="glass-card p-8 flex flex-col md:flex-row gap-6">
-          <InstitutionBadge institution="manipal" />
-          <div class="flex-1">
-            <span class="text-xs font-semibold uppercase tracking-wider text-brand-teal bg-brand-teal/10 px-3 py-1 rounded-full">Aug 2016 – May 2020</span>
-            <h3 class="text-xl font-bold text-white mt-3 mb-1">B.Tech — Mechanical Engineering</h3>
-            <p class="text-brand-teal font-medium">Manipal Institute of Technology, India</p>
           </div>
         </div>
       </div>
@@ -69,9 +48,14 @@
           Research Journey
         </h2>
         <div class="space-y-6 border-l-2 border-slate-700 pl-8 ml-4">
-          <ExperienceItem date="2022 – Present" title="PhD Researcher" org="University of Pennsylvania" description="Investigating nanoscale fatigue in mineralized collagen fibrils using synchrotron X-ray nano-tomography at NSLS-II, Brookhaven National Laboratory." />
-          <ExperienceItem date="2021 – 2022" title="Research Assistant" org="Auckland Bioengineering Institute" description="Studied the impact of diabetes on cardiomyocyte energy metabolism and force dynamics using computational modeling." />
-          <ExperienceItem date="2020" title="Research Intern" org="Auckland Bioengineering Institute" description="Developed cardiac models investigating atrial fibrillation mechanisms." />
+          <ExperienceItem
+            v-for="item in experienceByCategory.research"
+            :key="item._path"
+            :date="item.date_range"
+            :title="item.title"
+            :org="item.org"
+            :description="item.description"
+          />
         </div>
       </div>
 
@@ -81,9 +65,14 @@
           Teaching & Mentoring
         </h2>
         <div class="space-y-6 border-l-2 border-slate-700 pl-8 ml-4">
-          <ExperienceItem date="2024 – Present" title="Teaching Assistant" org="University of Pennsylvania" description="Courses: Dynamic Systems, Statics and Mechanics of Solids." />
-          <ExperienceItem date="2023 – 2024" title="Mentor" org="University of Pennsylvania" description="Mentoring high school and undergraduate students, bridging the gap between curriculum and research." />
-          <ExperienceItem date="2023 – 2024" title="Vice President, MEGA" org="University of Pennsylvania" description="Organized community events and professional development for graduate engineering students." />
+          <ExperienceItem
+            v-for="item in experienceByCategory.teaching"
+            :key="item._path"
+            :date="item.date_range"
+            :title="item.title"
+            :org="item.org"
+            :description="item.description"
+          />
         </div>
       </div>
 
@@ -93,10 +82,14 @@
           Internships
         </h2>
         <div class="space-y-6 border-l-2 border-slate-700 pl-8 ml-4">
-          <ExperienceItem date="2021" title="Patent Intern" org="Davies Collison Cave, New Zealand" description="Worked on analyzing and drafting patent documentation." />
-          <ExperienceItem date="Dec 2020" title="Business & Strategy Intern" org="Mercury Energy + University of Auckland, New Zealand" description="Developed an electric vehicle business model at the intersection of energy and transport." />
-          <ExperienceItem date="May – Jun 2019" title="Mechanical Engineering Intern" org="Honda Cars India" description="Focused on MUDA waste reduction processes in manufacturing." />
-          <ExperienceItem date="Jun – Jul 2018" title="Research Intern" org="IIT BHU, India" description="Conducted computational fluid dynamics (CFD) research." />
+          <ExperienceItem
+            v-for="item in experienceByCategory.internship"
+            :key="item._path"
+            :date="item.date_range"
+            :title="item.title"
+            :org="item.org"
+            :description="item.description"
+          />
         </div>
       </div>
     </div>
@@ -107,18 +100,14 @@
       <div>
         <h2 class="text-2xl font-bold text-white mb-8">Publications</h2>
         <div class="space-y-6">
-          <div class="glass-card p-6 flex gap-6">
-            <span class="text-brand-teal font-bold text-sm w-10 flex-shrink-0 pt-1">2025</span>
+          <div v-for="item in publications" :key="item._path" class="glass-card p-6 flex gap-6">
+            <span class="text-brand-teal font-bold text-sm w-12 flex-shrink-0 pt-1">{{ item.year }}</span>
             <div>
-              <h3 class="text-white font-semibold leading-snug">Bone Resists Fatigue through Crack Deceleration at the Fibril Scale</h3>
-              <p class="text-brand-teal text-sm mt-1">Science Advances <span class="text-slate-500">· In review</span></p>
-            </div>
-          </div>
-          <div class="glass-card p-6 flex gap-6">
-            <span class="text-brand-teal font-bold text-sm w-10 flex-shrink-0 pt-1">2021</span>
-            <div>
-              <h3 class="text-white font-semibold leading-snug">Impact of mitochondrial organization on bioenergetics and force dynamics in diabetic myocardium</h3>
-              <p class="text-brand-teal text-sm mt-1">M.Eng. Dissertation <span class="text-slate-500">· University of Auckland</span></p>
+              <h3 class="text-white font-semibold leading-snug">{{ item.title }}</h3>
+              <p class="text-brand-teal text-sm mt-1">
+                {{ item.venue }}
+                <span class="text-slate-500">· {{ item.status }}</span>
+              </p>
             </div>
           </div>
         </div>
@@ -128,51 +117,21 @@
       <div>
         <h2 class="text-2xl font-bold text-white mb-8">Talks & Presentations</h2>
         <div class="space-y-4">
-          <div class="glass-card p-6 flex gap-6 items-start">
-            <span class="text-brand-teal font-bold text-sm w-10 flex-shrink-0 pt-1">2025</span>
+          <div v-for="item in talks" :key="item._path" class="glass-card p-6 flex gap-6 items-start">
+            <span class="text-brand-teal font-bold text-sm w-12 flex-shrink-0 pt-1">{{ item.year }}</span>
             <div class="flex-1">
               <div class="flex flex-wrap items-center gap-2 mb-1">
-                <h3 class="text-white font-semibold">SES 2025</h3>
+                <h3 class="text-white font-semibold">{{ item.conference }}</h3>
+                <span v-if="item.award" class="text-xs font-semibold text-yellow-300 bg-yellow-300/10 px-2 py-0.5 rounded-full">{{ item.award }}</span>
               </div>
-              <p class="text-slate-400 text-sm">Bone Resists Fatigue through Crack Deceleration at the Fibril Scale</p>
-              <NuxtLink to="/posters/ses-2025" class="text-brand-teal text-sm hover:text-brand-light-teal transition-colors mt-1 inline-block">View poster →</NuxtLink>
-            </div>
-          </div>
-          <div class="glass-card p-6 flex gap-6 items-start">
-            <span class="text-brand-teal font-bold text-sm w-10 flex-shrink-0 pt-1">2024</span>
-            <div class="flex-1">
-              <h3 class="text-white font-semibold">SB3C 2024</h3>
-              <p class="text-slate-400 text-sm">Resolving deformations of mineralized collagen fibrils in 3D</p>
-              <NuxtLink to="/posters/sb3c-2024" class="text-brand-teal text-sm hover:text-brand-light-teal transition-colors mt-1 inline-block">View poster →</NuxtLink>
-            </div>
-          </div>
-          <div class="glass-card p-6 flex gap-6 items-start">
-            <span class="text-brand-teal font-bold text-sm w-10 flex-shrink-0 pt-1">2023</span>
-            <div class="flex-1">
-              <div class="flex flex-wrap items-center gap-2 mb-1">
-                <h3 class="text-white font-semibold">PCMD 2023</h3>
-                <span class="text-xs font-semibold text-yellow-400 bg-yellow-400/10 px-2 py-0.5 rounded-full">🏆 Poster Award</span>
-              </div>
-              <p class="text-slate-400 text-sm">Resolving deformations of mineralized collagen fibrils in 3D</p>
-              <NuxtLink to="/posters/pcmd-2023" class="text-brand-teal text-sm hover:text-brand-light-teal transition-colors mt-1 inline-block">View poster →</NuxtLink>
-            </div>
-          </div>
-          <div class="glass-card p-6 flex gap-6 items-start">
-            <span class="text-brand-teal font-bold text-sm w-10 flex-shrink-0 pt-1">2023</span>
-            <div class="flex-1">
-              <div class="flex flex-wrap items-center gap-2 mb-1">
-                <h3 class="text-white font-semibold">SES 2023</h3>
-                <span class="text-xs font-semibold text-yellow-400 bg-yellow-400/10 px-2 py-0.5 rounded-full">🏆 Poster Award</span>
-              </div>
-              <p class="text-slate-400 text-sm">Resolving deformations of mineralized collagen fibrils in 3D</p>
-              <NuxtLink to="/posters/ses-2023" class="text-brand-teal text-sm hover:text-brand-light-teal transition-colors mt-1 inline-block">View poster →</NuxtLink>
-            </div>
-          </div>
-          <div class="glass-card p-6 flex gap-6 items-start">
-            <span class="text-brand-teal font-bold text-sm w-10 flex-shrink-0 pt-1">2021</span>
-            <div class="flex-1">
-              <h3 class="text-white font-semibold">Auckland Bioengineering Institute Forum 2021</h3>
-              <p class="text-slate-400 text-sm">Impact of mitochondrial organization on myofibrillar force in diabetes</p>
+              <p class="text-slate-300 text-sm">{{ item.title }}</p>
+              <NuxtLink
+                v-if="item.link"
+                :to="item.link"
+                class="text-brand-teal text-sm hover:text-brand-light-teal transition-colors mt-1 inline-block"
+              >
+                View poster →
+              </NuxtLink>
             </div>
           </div>
         </div>
@@ -182,7 +141,46 @@
 </template>
 
 <script setup lang="ts">
+type EducationDoc = {
+  _path: string
+  title: string
+  field: string
+  institution: string
+  location: string
+  date_range: string
+  grade?: string
+  thesis?: string
+  description?: string
+}
+
+type ExperienceDoc = {
+  _path: string
+  title: string
+  org: string
+  date_range: string
+  category: 'research' | 'teaching' | 'internship'
+  description: string
+}
+
+type PublicationDoc = {
+  _path: string
+  title: string
+  year: number
+  venue: string
+  status: string
+}
+
+type TalkDoc = {
+  _path: string
+  title: string
+  year: number
+  conference: string
+  award?: string
+  link?: string
+}
+
 const route = useRoute()
+const router = useRouter()
 
 const tabs = [
   { id: 'education', label: 'Education' },
@@ -190,12 +188,49 @@ const tabs = [
   { id: 'research', label: 'Research' },
 ]
 
+const validTabs = new Set(tabs.map((tab) => tab.id))
+
 // Allow deep-linking via ?tab=experience etc.
-const activeTab = ref((route.query.tab as string) || 'education')
+const activeTab = ref(validTabs.has(route.query.tab as string) ? (route.query.tab as string) : 'education')
+
+watch(activeTab, (tab) => {
+  router.replace({ query: { ...route.query, tab } })
+})
 
 watch(() => route.query.tab, (tab) => {
-  if (tab) activeTab.value = tab as string
+  if (tab && validTabs.has(tab as string)) {
+    activeTab.value = tab as string
+  }
 })
+
+const { data: education } = await useAsyncData<EducationDoc[]>('education-list', () =>
+  queryContent('/education').sort({ order: 1 }).find(),
+)
+
+const { data: experiences } = await useAsyncData<ExperienceDoc[]>('experience-list', () =>
+  queryContent('/experience').sort({ order: 1 }).find(),
+)
+
+const { data: publications } = await useAsyncData<PublicationDoc[]>('publication-list', () =>
+  queryContent('/publications').sort({ year: -1 }).find(),
+)
+
+const { data: talks } = await useAsyncData<TalkDoc[]>('talk-list', () =>
+  queryContent('/talks').sort({ year: -1 }).find(),
+)
+
+const experienceByCategory = computed(() => ({
+  research: (experiences.value || []).filter((item) => item.category === 'research'),
+  teaching: (experiences.value || []).filter((item) => item.category === 'teaching'),
+  internship: (experiences.value || []).filter((item) => item.category === 'internship'),
+}))
+
+function institutionKey(name: string) {
+  if (name.includes('Penn')) return 'upenn' as const
+  if (name.includes('Auckland')) return 'auckland' as const
+  if (name.includes('Manipal')) return 'manipal' as const
+  return null
+}
 
 useSeoMeta({
   title: 'Work — Riti Sharma',

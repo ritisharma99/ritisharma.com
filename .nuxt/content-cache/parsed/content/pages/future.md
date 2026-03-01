@@ -1,16 +1,1 @@
----
-title: "Looking Forward"
-subtitle: "Where I'm heading and what drives me"
----
-
-## Advancing Biomechanics Research
-
-Continue pushing the boundaries of nanoscale bone research, developing new imaging techniques, and contributing to our understanding of how biological materials withstand mechanical stress.
-
-## Interdisciplinary Collaboration
-
-Build bridges between mechanical engineering, biology, and clinical medicine. The best breakthroughs happen at the intersection of disciplines.
-
-## Leadership & Mentorship
-
-Foster the next generation of researchers and engineers. Create environments where curiosity is celebrated and diverse perspectives are valued.
+{"parsed":{"_path":"/pages/future","_dir":"pages","_draft":false,"_partial":false,"_locale":"","title":"Looking Forward","description":"","subtitle":"Where I'm heading and what drives me","body":{"type":"root","children":[{"type":"element","tag":"h2","props":{"id":"advancing-biomechanics-research"},"children":[{"type":"text","value":"Advancing Biomechanics Research"}]},{"type":"element","tag":"p","props":{},"children":[{"type":"text","value":"Continue pushing the boundaries of nanoscale bone research, developing new imaging techniques, and contributing to our understanding of how biological materials withstand mechanical stress."}]},{"type":"element","tag":"h2","props":{"id":"interdisciplinary-collaboration"},"children":[{"type":"text","value":"Interdisciplinary Collaboration"}]},{"type":"element","tag":"p","props":{},"children":[{"type":"text","value":"Build bridges between mechanical engineering, biology, and clinical medicine. The best breakthroughs happen at the intersection of disciplines."}]},{"type":"element","tag":"h2","props":{"id":"leadership-mentorship"},"children":[{"type":"text","value":"Leadership & Mentorship"}]},{"type":"element","tag":"p","props":{},"children":[{"type":"text","value":"Foster the next generation of researchers and engineers. Create environments where curiosity is celebrated and diverse perspectives are valued."}]}],"toc":{"title":"","searchDepth":2,"depth":2,"links":[{"id":"advancing-biomechanics-research","depth":2,"text":"Advancing Biomechanics Research"},{"id":"interdisciplinary-collaboration","depth":2,"text":"Interdisciplinary Collaboration"},{"id":"leadership-mentorship","depth":2,"text":"Leadership & Mentorship"}]}},"_type":"markdown","_id":"content:pages:future.md","_source":"content","_file":"pages/future.md","_stem":"pages/future","_extension":"md"},"hash":"ydGLcRx33a"}

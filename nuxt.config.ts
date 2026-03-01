@@ -24,7 +24,7 @@ export default defineNuxtConfig({
         { property: 'og:image', content: '/images/og-image.png' },
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:image', content: '/images/og-image.png' },
-        { name: 'theme-color', content: '#14B8A6' },
+        { name: 'theme-color', content: '#0B1020' },
       ],
       link: [
         { rel: 'icon', type: 'image/png', href: '/favicon.png' },

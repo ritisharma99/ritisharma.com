@@ -5,15 +5,14 @@
       <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
         <div class="order-2 md:order-1">
           <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-            Hello, I'm
+            {{ heroPrefix }}
             <span class="gradient-text block">Riti Sharma</span>
           </h1>
           <p class="text-lg text-slate-400 mb-8 max-w-lg leading-relaxed">
-            This website is a home for the things I care about — science, creativity, engineering,
-            storytelling, and the joy of learning something new every day.
+            {{ homePage?.hero_subtitle }}
           </p>
           <div class="flex flex-wrap gap-4">
-            <NuxtLink to="/research" class="btn-primary">
+            <NuxtLink to="/work?tab=research" class="btn-primary">
               View My Work
               <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
             </NuxtLink>
@@ -25,7 +24,7 @@
             <div class="absolute inset-0 rounded-full bg-gradient-brand opacity-20 blur-2xl"></div>
             <div class="relative w-full h-full rounded-full p-1 bg-gradient-brand">
               <NuxtImg
-                src="/images/Riti_Sharma.png"
+                :src="homePage?.profile_image || '/images/Riti_Sharma.png'"
                 alt="Riti Sharma"
                 class="w-full h-full rounded-full object-cover"
                 width="320"
@@ -44,18 +43,8 @@
       <div class="max-w-4xl mx-auto px-6">
         <h2 class="section-title text-center mb-12">About Me</h2>
         <div class="space-y-6 text-slate-300 text-lg leading-relaxed">
-          <p>
-            I'm a bio-mechanical engineer drawn to the puzzles hidden inside materials and living systems.
-            Right now, I'm a PhD researcher at the University of Pennsylvania, using synchrotron X-ray
-            nano-tomography to understand how bones resist fatigue at the nanoscale — the stuff that keeps
-            our skeletons from crumbling every time we take a step.
-          </p>
-          <p>
-            Outside the lab, I'm curious about just about everything: 3D printing scale models, road
-            trips through mountain highways, learning to ride a motorbike, editing videos, and finding
-            ways to tell scientific stories so they actually stick. This site is my attempt to bring all
-            those worlds together.
-          </p>
+          <p>{{ homePage?.about_p1 }}</p>
+          <p>{{ homePage?.about_p2 }}</p>
         </div>
       </div>
     </section>
@@ -106,12 +95,27 @@
           </div>
 
           <!-- Contact Form -->
-          <form class="glass-card p-8 space-y-6" @submit.prevent="handleSubmit">
+          <form
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            class="glass-card p-8 space-y-6"
+            @submit.prevent="handleSubmit"
+          >
+            <input type="hidden" name="form-name" value="contact" />
+            <p class="hidden">
+              <label>
+                Don't fill this out if you're human:
+                <input v-model="form.botField" name="bot-field" />
+              </label>
+            </p>
             <div>
               <label for="name" class="block text-sm font-medium text-slate-300 mb-2">Name</label>
               <input
                 id="name"
                 v-model="form.name"
+                name="name"
                 type="text"
                 required
                 class="w-full px-4 py-3 bg-dark-800/50 border border-slate-600/50 rounded-xl text-white placeholder-slate-500 focus:border-brand-teal focus:ring-1 focus:ring-brand-teal outline-none transition-colors"
@@ -123,6 +127,7 @@
               <input
                 id="email"
                 v-model="form.email"
+                name="email"
                 type="email"
                 required
                 class="w-full px-4 py-3 bg-dark-800/50 border border-slate-600/50 rounded-xl text-white placeholder-slate-500 focus:border-brand-teal focus:ring-1 focus:ring-brand-teal outline-none transition-colors"
@@ -134,15 +139,18 @@
               <textarea
                 id="message"
                 v-model="form.message"
+                name="message"
                 rows="4"
                 required
                 class="w-full px-4 py-3 bg-dark-800/50 border border-slate-600/50 rounded-xl text-white placeholder-slate-500 focus:border-brand-teal focus:ring-1 focus:ring-brand-teal outline-none transition-colors resize-none"
                 placeholder="Your message..."
               />
             </div>
-            <button type="submit" class="btn-primary w-full justify-center">
+            <button type="submit" class="btn-primary w-full justify-center disabled:opacity-70 disabled:cursor-not-allowed" :disabled="submitState === 'sending'">
               Send Message
             </button>
+            <p v-if="submitState === 'success'" class="text-sm text-brand-teal">Message sent successfully. Thank you!</p>
+            <p v-if="submitState === 'error'" class="text-sm text-red-300">Message failed to send. Please try again or email directly.</p>
           </form>
         </div>
       </div>
@@ -151,6 +159,14 @@
 </template>
 
 <script setup lang="ts">
+type HomePage = {
+  hero_title?: string
+  hero_subtitle?: string
+  about_p1?: string
+  about_p2?: string
+  profile_image?: string
+}
+
 useSeoMeta({
   title: 'Riti Sharma — Biomechanical Engineer & Researcher',
   ogTitle: 'Riti Sharma — Biomechanical Engineer & Researcher',
@@ -160,17 +176,55 @@ useSeoMeta({
   twitterCard: 'summary_large_image',
 })
 
+const { data: homePage } = await useAsyncData<HomePage>('home-page', () =>
+  queryContent('/pages/home').findOne(),
+)
+
+const heroPrefix = computed(() => {
+  const title = homePage.value?.hero_title || "Hello, I'm Riti Sharma"
+  return title.replace('Riti Sharma', '').trim()
+})
+
 const form = reactive({
   name: '',
   email: '',
   message: '',
+  botField: '',
 })
 
-function handleSubmit() {
-  // For Netlify Forms, the form-data will be handled by Netlify
-  alert('Thank you for your message! I\'ll get back to you soon.')
-  form.name = ''
-  form.email = ''
-  form.message = ''
+const submitState = ref<'idle' | 'sending' | 'success' | 'error'>('idle')
+
+function encodeFormData(payload: Record<string, string>) {
+  return Object.entries(payload)
+    .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
+    .join('&')
+}
+
+async function handleSubmit() {
+  submitState.value = 'sending'
+
+  try {
+    const body = encodeFormData({
+      'form-name': 'contact',
+      'bot-field': form.botField,
+      name: form.name,
+      email: form.email,
+      message: form.message,
+    })
+
+    await $fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body,
+    })
+
+    submitState.value = 'success'
+    form.name = ''
+    form.email = ''
+    form.message = ''
+    form.botField = ''
+  } catch {
+    submitState.value = 'error'
+  }
 }
 </script>

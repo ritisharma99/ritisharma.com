@@ -17,21 +17,23 @@ export default <Config>{
       colors: {
         brand: {
           teal: '#14B8A6',
-          'dark-teal': '#0D9488',
-          'light-teal': '#2DD4BF',
-          blue: '#0EA5E9',
-          cyan: '#06B6D4',
+          'dark-teal': '#0F766E',
+          'light-teal': '#5EEAD4',
+          blue: '#22D3EE',
+          cyan: '#67E8F9',
+          secondary: '#8B5CF6',
+          highlight: '#F59E0B',
         },
         dark: {
-          900: '#020617',
-          800: '#0F172A',
-          700: '#1E293B',
+          900: '#0B1020',
+          800: '#111827',
+          700: '#1F2937',
           600: '#334155',
         },
       },
       backgroundImage: {
-        'gradient-brand': 'linear-gradient(135deg, #14B8A6, #0EA5E9)',
-        'gradient-text': 'linear-gradient(135deg, #2DD4BF, #0EA5E9)',
+        'gradient-brand': 'linear-gradient(135deg, #14B8A6, #8B5CF6)',
+        'gradient-text': 'linear-gradient(135deg, #5EEAD4, #8B5CF6)',
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',
