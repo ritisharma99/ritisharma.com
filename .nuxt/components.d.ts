@@ -17,6 +17,7 @@ type LazyComponent<T> = DefineComponent<HydrationStrategies, {}, {}, {}, {}, {},
 export const AppFooter: typeof import("../components/AppFooter.vue")['default']
 export const AppNavbar: typeof import("../components/AppNavbar.vue")['default']
 export const ExperienceItem: typeof import("../components/ExperienceItem.vue")['default']
+export const InstitutionBadge: typeof import("../components/InstitutionBadge.vue")['default']
 export const PageHeader: typeof import("../components/PageHeader.vue")['default']
 export const ContentDoc: typeof import("../node_modules/@nuxt/content/dist/runtime/components/ContentDoc.vue")['default']
 export const ContentList: typeof import("../node_modules/@nuxt/content/dist/runtime/components/ContentList.vue")['default']
@@ -83,6 +84,7 @@ export const NuxtIsland: typeof import("../node_modules/nuxt/dist/app/components
 export const LazyAppFooter: LazyComponent<typeof import("../components/AppFooter.vue")['default']>
 export const LazyAppNavbar: LazyComponent<typeof import("../components/AppNavbar.vue")['default']>
 export const LazyExperienceItem: LazyComponent<typeof import("../components/ExperienceItem.vue")['default']>
+export const LazyInstitutionBadge: LazyComponent<typeof import("../components/InstitutionBadge.vue")['default']>
 export const LazyPageHeader: LazyComponent<typeof import("../components/PageHeader.vue")['default']>
 export const LazyContentDoc: LazyComponent<typeof import("../node_modules/@nuxt/content/dist/runtime/components/ContentDoc.vue")['default']>
 export const LazyContentList: LazyComponent<typeof import("../node_modules/@nuxt/content/dist/runtime/components/ContentList.vue")['default']>

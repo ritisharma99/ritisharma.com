@@ -17,6 +17,7 @@ interface _GlobalComponents {
   AppFooter: typeof import("../../components/AppFooter.vue")['default']
   AppNavbar: typeof import("../../components/AppNavbar.vue")['default']
   ExperienceItem: typeof import("../../components/ExperienceItem.vue")['default']
+  InstitutionBadge: typeof import("../../components/InstitutionBadge.vue")['default']
   PageHeader: typeof import("../../components/PageHeader.vue")['default']
   ContentDoc: typeof import("../../node_modules/@nuxt/content/dist/runtime/components/ContentDoc.vue")['default']
   ContentList: typeof import("../../node_modules/@nuxt/content/dist/runtime/components/ContentList.vue")['default']
@@ -83,6 +84,7 @@ interface _GlobalComponents {
   LazyAppFooter: LazyComponent<typeof import("../../components/AppFooter.vue")['default']>
   LazyAppNavbar: LazyComponent<typeof import("../../components/AppNavbar.vue")['default']>
   LazyExperienceItem: LazyComponent<typeof import("../../components/ExperienceItem.vue")['default']>
+  LazyInstitutionBadge: LazyComponent<typeof import("../../components/InstitutionBadge.vue")['default']>
   LazyPageHeader: LazyComponent<typeof import("../../components/PageHeader.vue")['default']>
   LazyContentDoc: LazyComponent<typeof import("../../node_modules/@nuxt/content/dist/runtime/components/ContentDoc.vue")['default']>
   LazyContentList: LazyComponent<typeof import("../../node_modules/@nuxt/content/dist/runtime/components/ContentList.vue")['default']>

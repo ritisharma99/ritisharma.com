@@ -1,11 +1,10 @@
 # Nuxt build output
-nuxt-app/.nuxt
-nuxt-app/.output
-nuxt-app/.data
+.nuxt
+.output
+.data
 
 # Dependencies
 node_modules
-nuxt-app/node_modules
 
 # Logs
 *.log

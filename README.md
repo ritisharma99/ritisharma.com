@@ -24,22 +24,20 @@ Built with **Nuxt 3**, **Tailwind CSS**, and deployable to **Netlify** with **De
 
 ```
 ritisharma.com/
-├── nuxt-app/               # Nuxt 3 application
-│   ├── assets/css/         # Tailwind global styles
-│   ├── components/         # Shared components (Navbar, Footer, etc.)
-│   ├── content/            # Markdown content (edited via CMS)
-│   ├── layouts/            # Page layouts (default, poster)
-│   ├── pages/              # File-based routing
-│   │   ├── index.vue       # Home (About + Contact)
-│   │   ├── work.vue        # Education / Experience / Research (tabbed)
-│   │   ├── creative/       # Creative sub-pages
-│   │   └── posters/        # Conference poster viewers
-│   ├── public/             # Static assets (images, admin CMS)
-│   │   └── admin/          # Decap CMS (index.html + config.yml)
-│   ├── nuxt.config.ts
-│   └── tailwind.config.ts
-├── netlify.toml            # Netlify build config
-└── README.md
+├── assets/css/         # Tailwind global styles
+├── components/         # Shared components (Navbar, Footer, InstitutionBadge, etc.)
+├── content/            # Markdown content (edited via CMS)
+├── layouts/            # Page layouts (default, poster)
+├── pages/              # File-based routing
+│   ├── index.vue       # Home (About + Contact)
+│   ├── work.vue        # Education / Experience / Research (tabbed)
+│   ├── creative/       # Creative sub-pages
+│   └── posters/        # Conference poster viewers
+├── public/             # Static assets (images, admin CMS)
+│   └── admin/          # Decap CMS (index.html + config.yml)
+├── netlify.toml        # Netlify build config
+├── nuxt.config.ts
+└── tailwind.config.ts
 ```
 
 ---
@@ -47,7 +45,6 @@ ritisharma.com/
 ## Local Development
 
 ```bash
-cd nuxt-app
 npm install
 npm run dev
 ```
@@ -59,7 +56,6 @@ Open [http://localhost:3000](http://localhost:3000).
 ## Build & Preview
 
 ```bash
-cd nuxt-app
 npm run generate       # static output → .output/public/
 npx serve .output/public  # local preview
 ```
@@ -70,7 +66,7 @@ npx serve .output/public  # local preview
 
 The [netlify.toml](netlify.toml) at the repo root is pre-configured:
 
-- **Base directory:** `nuxt-app`
+- **Base directory:** root
 - **Build command:** `npm run generate`
 - **Publish directory:** `.output/public`
 

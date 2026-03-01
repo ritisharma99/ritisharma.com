@@ -23,7 +23,7 @@
     <div v-show="activeTab === 'education'" class="max-w-5xl mx-auto px-6 pb-20">
       <div class="space-y-8">
         <div class="glass-card p-8 flex flex-col md:flex-row gap-6">
-          <div class="flex-shrink-0 w-16 h-16 rounded-2xl bg-gradient-brand flex items-center justify-center text-2xl">🎓</div>
+          <InstitutionBadge institution="upenn" />
           <div class="flex-1">
             <span class="text-xs font-semibold uppercase tracking-wider text-brand-teal bg-brand-teal/10 px-3 py-1 rounded-full">Sept 2022 – Present</span>
             <h3 class="text-xl font-bold text-white mt-3 mb-1">PhD — Mechanical Engineering and Applied Mechanics</h3>
@@ -38,7 +38,7 @@
         </div>
 
         <div class="glass-card p-8 flex flex-col md:flex-row gap-6">
-          <div class="flex-shrink-0 w-16 h-16 rounded-2xl bg-gradient-brand flex items-center justify-center text-2xl">🔬</div>
+          <InstitutionBadge institution="auckland" />
           <div class="flex-1">
             <span class="text-xs font-semibold uppercase tracking-wider text-brand-teal bg-brand-teal/10 px-3 py-1 rounded-full">Jul 2020 – Jul 2021</span>
             <h3 class="text-xl font-bold text-white mt-3 mb-1">M.Eng (Research) — Bioengineering</h3>
@@ -51,7 +51,7 @@
         </div>
 
         <div class="glass-card p-8 flex flex-col md:flex-row gap-6">
-          <div class="flex-shrink-0 w-16 h-16 rounded-2xl bg-gradient-brand flex items-center justify-center text-2xl">⚙️</div>
+          <InstitutionBadge institution="manipal" />
           <div class="flex-1">
             <span class="text-xs font-semibold uppercase tracking-wider text-brand-teal bg-brand-teal/10 px-3 py-1 rounded-full">Aug 2016 – May 2020</span>
             <h3 class="text-xl font-bold text-white mt-3 mb-1">B.Tech — Mechanical Engineering</h3>

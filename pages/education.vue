@@ -6,9 +6,7 @@
       <div class="space-y-8">
         <!-- PhD -->
         <div class="glass-card p-8 flex flex-col md:flex-row gap-6">
-          <div class="flex-shrink-0 w-16 h-16 rounded-2xl bg-gradient-brand flex items-center justify-center text-2xl">
-            🎓
-          </div>
+          <InstitutionBadge institution="upenn" />
           <div class="flex-1">
             <div class="flex flex-wrap items-center gap-3 mb-2">
               <span class="text-xs font-semibold uppercase tracking-wider text-brand-teal bg-brand-teal/10 px-3 py-1 rounded-full">
@@ -28,9 +26,7 @@
 
         <!-- M.Eng -->
         <div class="glass-card p-8 flex flex-col md:flex-row gap-6">
-          <div class="flex-shrink-0 w-16 h-16 rounded-2xl bg-gradient-brand flex items-center justify-center text-2xl">
-            🔬
-          </div>
+          <InstitutionBadge institution="auckland" />
           <div class="flex-1">
             <div class="flex flex-wrap items-center gap-3 mb-2">
               <span class="text-xs font-semibold uppercase tracking-wider text-brand-teal bg-brand-teal/10 px-3 py-1 rounded-full">
@@ -48,9 +44,7 @@
 
         <!-- B.Tech -->
         <div class="glass-card p-8 flex flex-col md:flex-row gap-6">
-          <div class="flex-shrink-0 w-16 h-16 rounded-2xl bg-gradient-brand flex items-center justify-center text-2xl">
-            ⚙️
-          </div>
+          <InstitutionBadge institution="manipal" />
           <div class="flex-1">
             <div class="flex flex-wrap items-center gap-3 mb-2">
               <span class="text-xs font-semibold uppercase tracking-wider text-brand-teal bg-brand-teal/10 px-3 py-1 rounded-full">

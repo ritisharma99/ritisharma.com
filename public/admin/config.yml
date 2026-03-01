@@ -2,13 +2,13 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: "nuxt-app/public/images/uploads"
+media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
 
 collections:
   - name: "blog"
     label: "Blog Posts"
-    folder: "nuxt-app/content/blog"
+    folder: "content/blog"
     create: true
     slug: "{{slug}}"
     fields:
@@ -22,7 +22,7 @@ collections:
 
   - name: "publications"
     label: "Publications"
-    folder: "nuxt-app/content/publications"
+    folder: "content/publications"
     create: true
     slug: "{{slug}}"
     fields:
@@ -35,7 +35,7 @@ collections:
 
   - name: "talks"
     label: "Talks & Presentations"
-    folder: "nuxt-app/content/talks"
+    folder: "content/talks"
     create: true
     slug: "{{slug}}"
     fields:
@@ -49,7 +49,7 @@ collections:
 
   - name: "experience"
     label: "Experience"
-    folder: "nuxt-app/content/experience"
+    folder: "content/experience"
     create: true
     slug: "{{slug}}"
     fields:
@@ -62,7 +62,7 @@ collections:
 
   - name: "education"
     label: "Education"
-    folder: "nuxt-app/content/education"
+    folder: "content/education"
     create: true
     slug: "{{slug}}"
     fields:
@@ -79,7 +79,7 @@ collections:
 
   - name: "creative_projects"
     label: "Creative Projects"
-    folder: "nuxt-app/content/creative"
+    folder: "content/creative"
     create: true
     slug: "{{slug}}"
     fields:
@@ -94,7 +94,7 @@ collections:
     files:
       - label: "Home / About"
         name: "home"
-        file: "nuxt-app/content/pages/home.md"
+        file: "content/pages/home.md"
         fields:
           - { label: "Hero Title", name: "hero_title", widget: "string" }
           - { label: "Hero Subtitle", name: "hero_subtitle", widget: "text" }
@@ -103,7 +103,7 @@ collections:
           - { label: "Profile Image", name: "profile_image", widget: "image" }
       - label: "Future"
         name: "future"
-        file: "nuxt-app/content/pages/future.md"
+        file: "content/pages/future.md"
         fields:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Subtitle", name: "subtitle", widget: "string" }
