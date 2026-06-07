@@ -10,7 +10,7 @@
       <div class="glass-card overflow-hidden">
         <NuxtImg
           src="/images/posters/Poster_SES_2023.png"
-          alt="SES 2023 Poster — Resolving Deformations of Mineralized Collagen Fibrils in 3D"
+          alt="SES 2023 Poster, Resolving Deformations of Mineralized Collagen Fibrils in 3D"
           class="w-full"
           width="1600"
           height="1200"
@@ -30,8 +30,8 @@
 definePageMeta({ layout: 'default' })
 
 useSeoMeta({
-  title: 'SES 2023 Poster — Riti Sharma',
-  ogTitle: 'Resolving Deformations of Mineralized Collagen Fibrils in 3D — SES 2023',
+  title: 'SES 2023 Poster | Riti Sharma',
+  ogTitle: 'Resolving Deformations of Mineralized Collagen Fibrils in 3D, SES 2023',
   description: 'SES 2023 poster presentation (Poster Award winner): Resolving deformations of mineralized collagen fibrils in 3D.',
   ogDescription: 'Award-winning SES 2023 poster on mineralized collagen fibrils.',
   ogImage: '/images/posters/Poster_SES_2023.png',

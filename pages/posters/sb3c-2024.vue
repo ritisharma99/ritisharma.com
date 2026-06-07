@@ -6,7 +6,7 @@
       <div class="glass-card overflow-hidden">
         <NuxtImg
           src="/images/posters/Poster_Sb3C_2024.png"
-          alt="SB3C 2024 Poster — Resolving Deformations of Mineralized Collagen Fibrils in 3D"
+          alt="SB3C 2024 Poster, Resolving Deformations of Mineralized Collagen Fibrils in 3D"
           class="w-full"
           width="1600"
           height="1200"
@@ -26,7 +26,7 @@
 definePageMeta({ layout: 'default' })
 
 useSeoMeta({
-  title: 'SB3C 2024 Poster — Riti Sharma',
+  title: 'SB3C 2024 Poster | Riti Sharma',
   ogTitle: 'Resolving Deformations of Mineralized Collagen Fibrils in 3D',
   description: 'SB3C 2024 poster presentation: Resolving deformations of mineralized collagen fibrils in 3D. Riti Sharma, University of Pennsylvania.',
   ogDescription: 'SB3C 2024 poster on deformations of mineralized collagen fibrils.',

@@ -3,59 +3,98 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    color-scheme: light;
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+
   body {
-    @apply bg-dark-900 text-slate-200 font-sans antialiased;
-    background-image: radial-gradient(ellipse at 20% 50%, rgba(20, 184, 166, 0.08) 0%, transparent 50%),
-                      radial-gradient(ellipse at 80% 50%, rgba(139, 92, 246, 0.08) 0%, transparent 50%);
-    background-size: 200% 200%;
-    animation: backgroundShift 15s ease infinite;
+    @apply bg-white text-slate-900 font-sans antialiased transition-colors duration-300;
+    background-image:
+      radial-gradient(circle at top left, rgba(42, 157, 143, 0.08), transparent 28%),
+      radial-gradient(circle at top right, rgba(38, 70, 83, 0.06), transparent 24%);
+  }
+
+  html.dark body {
+    @apply bg-slate-950 text-slate-100;
+    background-image:
+      radial-gradient(circle at top left, rgba(42, 157, 143, 0.18), transparent 30%),
+      radial-gradient(circle at top right, rgba(56, 189, 248, 0.12), transparent 24%);
   }
 
   ::selection {
-    @apply bg-brand-teal/30 text-white;
+    @apply bg-teal-100 text-teal-900;
+  }
+
+  html.dark ::selection {
+    @apply bg-teal-400/30 text-teal-50;
   }
 
   a {
-    @apply transition-colors duration-300;
+    @apply transition-colors duration-200;
   }
 
   :focus-visible {
-    @apply outline-none ring-2 ring-brand-teal/70 ring-offset-2 ring-offset-dark-900;
+    @apply outline-none ring-2 ring-teal-500/60 ring-offset-2 ring-offset-white;
+  }
+
+  html.dark :focus-visible {
+    @apply ring-teal-300/60 ring-offset-slate-950;
   }
 }
 
 @layer components {
   .glass-card {
-    @apply bg-dark-700/50 backdrop-blur-md border border-slate-700/50 rounded-2xl transition-all duration-300;
+    @apply bg-white/90 border border-slate-200 rounded-2xl shadow-sm backdrop-blur-sm transition-all duration-200;
+  }
+
+  html.dark .glass-card {
+    @apply bg-slate-900/80 border-slate-800 shadow-lg shadow-slate-950/30;
   }
 
   .glass-card:hover {
-    @apply border-brand-teal/30 shadow-lg shadow-brand-teal/5 -translate-y-1;
+    @apply shadow-md border-teal-300/60 -translate-y-0.5;
+  }
+
+  html.dark .glass-card:hover {
+    @apply border-teal-400/40 shadow-xl shadow-slate-950/40;
   }
 
   .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-light-teal to-brand-blue;
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #2A9D8F, #264653);
   }
 
   .section-title {
-    @apply text-3xl md:text-4xl font-bold gradient-text mb-2;
+    @apply text-3xl md:text-4xl font-bold text-slate-900 mb-2;
+  }
+
+  html.dark .section-title {
+    @apply text-slate-100;
   }
 
   .section-title::after {
     content: '';
-    @apply block w-16 h-1 bg-gradient-brand rounded-full mt-3;
+    @apply block w-10 h-0.5 bg-brand-teal rounded-full mt-3 mx-auto;
   }
 
   .btn-primary {
-    @apply inline-flex items-center gap-2 px-8 py-3 bg-gradient-brand text-white font-semibold rounded-full
-           shadow-lg shadow-brand-teal/25 hover:shadow-xl hover:shadow-brand-teal/30
-           hover:-translate-y-0.5 transition-all duration-300;
+    @apply inline-flex items-center gap-2 px-7 py-3 bg-brand-teal text-white font-semibold rounded-full
+           shadow-sm hover:bg-brand-dark-teal hover:shadow-md
+           hover:-translate-y-0.5 transition-all duration-200;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center gap-2 px-8 py-3 border-2 border-brand-teal/50 text-brand-teal
-           rounded-full hover:bg-brand-teal/10 hover:border-brand-teal
-           hover:-translate-y-0.5 transition-all duration-300;
+    @apply inline-flex items-center gap-2 px-7 py-3 border-2 border-brand-teal text-brand-teal
+           rounded-full font-semibold hover:bg-teal-50
+           hover:-translate-y-0.5 transition-all duration-200;
+  }
+
+  html.dark .btn-secondary {
+    @apply border-teal-300 text-teal-200 hover:bg-teal-400/10;
   }
 
   .page-header {
@@ -63,15 +102,78 @@
   }
 
   .page-header h1 {
-    @apply text-4xl md:text-5xl font-bold gradient-text mb-4;
+    @apply text-4xl md:text-5xl font-bold text-slate-900 mb-4;
+  }
+
+  html.dark .page-header h1 {
+    @apply text-slate-100;
   }
 
   .page-header p {
-    @apply text-lg text-slate-300 max-w-2xl mx-auto;
+    @apply text-lg text-slate-600 max-w-2xl mx-auto;
+  }
+
+  html.dark .page-header p {
+    @apply text-slate-300;
   }
 
   .back-link {
-    @apply inline-flex items-center gap-2 text-brand-teal hover:text-brand-light-teal transition-colors mt-8;
+    @apply inline-flex items-center gap-2 text-brand-teal hover:text-brand-dark-teal
+           transition-colors mt-8 font-medium text-sm;
+  }
+}
+
+@layer utilities {
+  html.dark .text-slate-900 {
+    color: rgb(241 245 249);
+  }
+
+  html.dark .text-slate-700 {
+    color: rgb(226 232 240);
+  }
+
+  html.dark .text-slate-600 {
+    color: rgb(203 213 225);
+  }
+
+  html.dark .text-slate-500 {
+    color: rgb(148 163 184);
+  }
+
+  html.dark .text-slate-400 {
+    color: rgb(100 116 139);
+  }
+
+  html.dark .bg-white {
+    background-color: rgb(2 6 23);
+  }
+
+  html.dark .bg-slate-50 {
+    background-color: rgb(15 23 42);
+  }
+
+  html.dark .bg-slate-100 {
+    background-color: rgb(15 23 42 / 0.8);
+  }
+
+  html.dark .border-slate-100 {
+    border-color: rgb(30 41 59);
+  }
+
+  html.dark .border-slate-200 {
+    border-color: rgb(30 41 59);
+  }
+
+  html.dark .border-slate-300 {
+    border-color: rgb(51 65 85);
+  }
+
+  html.dark .placeholder-slate-400::placeholder {
+    color: rgb(100 116 139);
+  }
+
+  html.dark .bg-gradient-to-br {
+    background-image: linear-gradient(135deg, rgb(15 23 42 / 0.96), rgb(30 41 59 / 0.92));
   }
 }
 

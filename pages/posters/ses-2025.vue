@@ -6,7 +6,7 @@
       <div class="glass-card overflow-hidden">
         <NuxtImg
           src="/images/posters/Poster_SES_2025.png"
-          alt="SES 2025 Poster — Bone Resists Fatigue through Crack Deceleration at the Fibril Scale"
+          alt="SES 2025 Poster, Bone Resists Fatigue through Crack Deceleration at the Fibril Scale"
           class="w-full"
           width="1600"
           height="1200"
@@ -26,7 +26,7 @@
 definePageMeta({ layout: 'default' })
 
 useSeoMeta({
-  title: 'SES 2025 Poster — Riti Sharma',
+  title: 'SES 2025 Poster | Riti Sharma',
   ogTitle: 'Bone Resists Fatigue through Crack Deceleration at the Fibril Scale',
   description: 'SES 2025 poster presentation: Bone resists fatigue through crack deceleration at the fibril scale. Riti Sharma, University of Pennsylvania.',
   ogDescription: 'SES 2025 poster on bone fatigue resistance at the fibril scale.',

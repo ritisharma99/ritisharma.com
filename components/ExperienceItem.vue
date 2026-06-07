@@ -2,8 +2,8 @@
   <div class="relative">
     <!-- Timeline dot -->
     <div
-      class="absolute -left-[2.55rem] top-3.5 w-4 h-4 rounded-full border-2 transition-colors duration-300"
-      :class="open ? 'bg-brand-teal border-brand-teal' : 'bg-dark-800 border-brand-teal'"
+      class="absolute -left-[2.55rem] top-3.5 w-4 h-4 rounded-full border-2 transition-colors duration-200"
+      :class="open ? 'bg-brand-teal border-brand-teal' : 'bg-white border-brand-teal'"
     />
 
     <div class="glass-card overflow-hidden">
@@ -13,16 +13,16 @@
         :aria-expanded="open"
         @click="open = !open"
       >
-        <span class="text-xs font-semibold text-brand-teal bg-brand-teal/10 px-2.5 py-0.5 rounded-full flex-shrink-0 whitespace-nowrap">
+        <span class="text-xs font-semibold text-teal-700 bg-teal-50 px-2.5 py-0.5 rounded-full flex-shrink-0 whitespace-nowrap">
           {{ doc.date_range }}
         </span>
         <div class="flex-1 min-w-0 truncate">
-          <span class="text-white font-semibold text-sm">{{ doc.title }}</span>
-          <span class="text-slate-600 text-sm"> &middot; </span>
-          <span class="text-slate-400 text-sm">{{ doc.org }}</span>
+          <span class="text-slate-900 font-semibold text-sm">{{ doc.title }}</span>
+          <span class="text-slate-300 text-sm"> &middot; </span>
+          <span class="text-slate-500 text-sm">{{ doc.org }}</span>
         </div>
         <svg
-          class="w-4 h-4 text-slate-500 flex-shrink-0 transition-transform duration-300"
+          class="w-4 h-4 text-slate-400 flex-shrink-0 transition-transform duration-200"
           :class="{ 'rotate-180 text-brand-teal': open }"
           fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
         >
@@ -30,12 +30,12 @@
         </svg>
       </button>
 
-      <!-- Expanded detail — v-show keeps it in SSR output to prevent hydration mismatch -->
+      <!-- Expanded detail -->
       <div
         v-show="open"
-        class="border-t border-slate-700/50 px-5 pb-5 pt-4"
+        class="border-t border-slate-100 px-5 pb-5 pt-4"
       >
-        <p class="text-slate-300 text-sm leading-relaxed mb-4">{{ doc.description }}</p>
+        <p class="text-slate-600 text-sm leading-relaxed mb-4">{{ doc.description }}</p>
         <div class="flex flex-col md:flex-row gap-6">
           <div class="flex-1 experience-body">
             <ContentRenderer :value="doc" />
@@ -67,15 +67,15 @@ const open = ref(false)
 
 <style scoped>
 .experience-body :deep(p) {
-  @apply text-slate-400 text-sm leading-relaxed mb-3;
+  @apply text-slate-600 text-sm leading-relaxed mb-3;
 }
 .experience-body :deep(p:last-child) {
   @apply mb-0;
 }
 .experience-body :deep(strong) {
-  @apply text-slate-300 font-semibold;
+  @apply text-slate-800 font-semibold;
 }
 .experience-body :deep(em) {
-  @apply italic text-slate-300;
+  @apply italic text-slate-700;
 }
 </style>

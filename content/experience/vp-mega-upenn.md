@@ -10,4 +10,4 @@ image: "/images/Riti_Sharma.png"
 
 As Vice President of MEGA (Mechanical Engineering Graduate Association) at Penn, I co-organized a full calendar of professional development workshops, social events, and department speaker series.
 
-Highlights included panel discussions with industry engineers and postdocs, a graduate-student research showcase, and cross-departmental social mixers. The goal was simple: help grad students feel less isolated and more connected — to each other, to the department, and to what comes after the PhD.
+Highlights included panel discussions with industry engineers and postdocs, a graduate-student research showcase, and cross-departmental social mixers. The goal was simple: help grad students feel less isolated and more connected, to each other, to the department, and to what comes after the PhD.

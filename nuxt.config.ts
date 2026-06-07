@@ -6,42 +6,58 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxtjs/google-fonts',
+    '@nuxtjs/color-mode',
     '@nuxt/content',
     '@nuxt/image',
   ],
+
+  runtimeConfig: {
+    public: {
+      gaId: process.env.NUXT_PUBLIC_GA_ID || 'G-21HE4Y4KFB',
+    },
+  },
 
   app: {
     head: {
       htmlAttrs: { lang: 'en' },
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
-      title: 'Riti Sharma - Portfolio',
+      title: 'Riti Sharma — PhD Candidate, Experimental Mechanics & Biomechanics',
       meta: [
-        { name: 'description', content: 'Riti Sharma — Biomechanical engineer, PhD researcher at UPenn. Exploring nanoscale fatigue in bone using synchrotron X-ray tomography.' },
+        { name: 'description', content: 'PhD candidate at UPenn studying nanoscale fracture mechanics in bone using synchrotron X-ray tomography at Brookhaven National Lab. Expertise in experimental mechanics, viscoelasticity, and materials biomechanics. Graduating August 2027.' },
         { name: 'author', content: 'Riti Sharma' },
+        { name: 'keywords', content: 'nanoscale mechanics, materials biomechanics, experimental mechanics, fracture mechanics, X-ray tomography, synchrotron, bone fatigue, viscoelasticity, PhD mechanical engineering, UPenn, Brookhaven National Lab' },
         { property: 'og:type', content: 'website' },
         { property: 'og:site_name', content: 'Riti Sharma' },
         { property: 'og:image', content: '/images/og-image.png' },
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:image', content: '/images/og-image.png' },
-        { name: 'theme-color', content: '#0B1020' },
+        { name: 'theme-color', content: '#FFFFFF' },
       ],
       link: [
         { rel: 'icon', type: 'image/png', href: '/favicon.png' },
+        { rel: 'canonical', href: 'https://ritisharma.com' },
       ],
     },
   },
 
   googleFonts: {
     families: {
-      Poppins: [300, 400, 500, 600, 700],
+      Inter: [300, 400, 500, 600, 700],
     },
     display: 'swap',
+    preload: true,
   },
 
   tailwindcss: {
     cssPath: '~/assets/css/tailwind.css',
     configPath: 'tailwind.config.ts',
+  },
+
+  colorMode: {
+    classSuffix: '',
+    preference: 'system',
+    fallback: 'light',
   },
 
   image: {
@@ -57,7 +73,6 @@ export default defineNuxtConfig({
   },
 
   content: {
-    // Netlify CMS will write markdown to content/
     markdown: {
       remarkPlugins: [],
     },
@@ -69,6 +84,7 @@ export default defineNuxtConfig({
       crawlLinks: true,
       failOnError: false,
     },
+    compressPublicAssets: true,
   },
 
   routeRules: {

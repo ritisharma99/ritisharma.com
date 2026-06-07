@@ -39,7 +39,7 @@
         </div>
       </div>
 
-      <div class="text-slate-300 text-lg leading-relaxed space-y-4">
+      <div class="text-slate-700 text-lg leading-relaxed space-y-4">
         <p>
           A custom-designed chess set bringing the Harry Potter universe to the chessboard, designed
           and printed piece by piece.
@@ -56,8 +56,8 @@
 
 <script setup lang="ts">
 useSeoMeta({
-  title: 'Harry Potter Chess Set — Riti Sharma',
-  ogTitle: 'Harry Potter Chess Set — Riti Sharma',
+  title: 'Harry Potter Chess Set | Riti Sharma',
+  ogTitle: 'Harry Potter Chess Set | Riti Sharma',
   description: 'A custom 3D printed Harry Potter chess set, designed and printed piece by piece.',
   ogDescription: '3D printed Harry Potter themed chess set.',
   ogImage: '/images/creative/chess/IMG_4098.JPG',
