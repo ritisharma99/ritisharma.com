@@ -101,6 +101,33 @@
       </div>
     </section>
 
+    <!-- ─── Featured Talk ───────────────────────────────────────── -->
+    <section class="py-20 bg-slate-50">
+      <div class="max-w-4xl mx-auto px-6">
+        <div class="text-center mb-10">
+          <h2 class="section-title mb-3">Featured Talk</h2>
+          <p class="text-slate-500 max-w-2xl mx-auto">A research talk from the University of Pennsylvania on how I study fracture and fatigue in bone.</p>
+        </div>
+
+        <div class="glass-card overflow-hidden p-4 md:p-5">
+          <div class="aspect-video overflow-hidden rounded-2xl bg-slate-100">
+            <iframe
+              class="h-full w-full"
+              src="https://www.youtube-nocookie.com/embed/fa7h76M140g"
+              title="University of Pennsylvania research talk by Riti Sharma"
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            />
+          </div>
+          <p class="mt-4 text-sm md:text-base text-slate-500">
+            A University of Pennsylvania talk on my research in nanoscale fracture mechanics and bone fatigue.
+          </p>
+        </div>
+      </div>
+    </section>
+
     <!-- ─── Work ─────────────────────────────────────────────────── -->
     <section id="work" class="py-20 bg-slate-50">
       <div class="max-w-6xl mx-auto px-6">

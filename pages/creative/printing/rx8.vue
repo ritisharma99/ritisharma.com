@@ -14,6 +14,23 @@
         />
       </div>
 
+      <div class="glass-card overflow-hidden mb-8 p-4 md:p-5">
+        <div class="aspect-video overflow-hidden rounded-2xl bg-slate-100">
+          <iframe
+            class="h-full w-full"
+            src="https://www.youtube-nocookie.com/embed/MSUmP5la18c"
+            title="3D printing time-lapse of the Mazda RX-8 scale model"
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          />
+        </div>
+        <p class="mt-4 text-sm md:text-base text-slate-500">
+          Time-lapse of the resin print building the RX-8 scale model layer by layer.
+        </p>
+      </div>
+
       <div class="text-slate-700 text-lg leading-relaxed space-y-4">
         <p>
           I have an RX-8 and absolutely love it, so making a miniature version of my own car felt like a
@@ -44,8 +61,8 @@
 useSeoMeta({
   title: 'Mazda RX-8 Scale Model | Riti Sharma',
   ogTitle: 'Mazda RX-8 Scale Model | Riti Sharma',
-  description: 'A miniature version of my Mazda RX-8, built from a favorite photo using Meshy AI and printed on an Anycubic resin printer.',
-  ogDescription: 'A personal Mazda RX-8 miniature made from a favorite photo and resin printed as a tiny model car.',
+  description: 'A miniature version of my Mazda RX-8, built from a favorite photo using Meshy AI and printed on an Anycubic resin printer, with a time-lapse of the print.',
+  ogDescription: 'A personal Mazda RX-8 miniature made from a favorite photo, resin printed as a tiny model car, with a print time-lapse.',
   ogImage: '/images/creative/rx8/wallpaper.jpg',
   twitterCard: 'summary_large_image',
 })
