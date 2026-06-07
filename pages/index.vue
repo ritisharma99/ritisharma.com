@@ -205,11 +205,11 @@
       </div>
     </section>
 
-    <!-- ─── Projects ──────────────────────────────────────────────── -->
-    <section id="projects" class="py-20 bg-slate-50">
+    <!-- ─── Beyond The Lab ────────────────────────────────────────── -->
+    <section id="beyond-the-lab" class="py-20 bg-slate-50">
       <div class="max-w-5xl mx-auto px-6">
-        <h2 class="section-title text-center mb-3">Projects</h2>
-        <p class="text-center text-slate-500 mb-12">Outside the lab</p>
+        <h2 class="section-title text-center mb-3">Beyond the Lab</h2>
+        <p class="text-center text-slate-500 mb-12">Creative work, travel, and life outside research</p>
         <div class="grid sm:grid-cols-3 gap-6">
           <NuxtLink
             v-for="project in projects"

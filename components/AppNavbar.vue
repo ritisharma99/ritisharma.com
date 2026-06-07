@@ -97,7 +97,7 @@ const scrolled = ref(false)
 const colorMode = useColorMode()
 
 const navLinks = [
-  { to: '/#projects', label: 'Projects' },
+  { to: '/#beyond-the-lab', label: 'Beyond the Lab' },
   { to: '/#contact', label: 'Contact' },
 ]
 

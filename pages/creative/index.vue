@@ -1,9 +1,9 @@
 <template>
   <div>
     <div class="page-header pt-32 pb-12 text-center">
-      <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">Projects</h1>
+      <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">Beyond the Lab</h1>
       <p class="text-lg text-slate-500 max-w-xl mx-auto">
-        A few things that live outside the lab, made with the same curiosity.
+        Creative work, travel, and side pursuits that live outside the lab.
       </p>
     </div>
 
@@ -43,10 +43,10 @@
 
 <script setup lang="ts">
 useSeoMeta({
-  title: 'Projects | Riti Sharma',
-  ogTitle: 'Projects | Riti Sharma',
-  description: '3D printing, learning to ride, and road trips. Projects outside the research lab by Riti Sharma, PhD candidate at UPenn.',
-  ogDescription: '3D printing, learning to ride, and road trips. Projects outside the lab.',
+  title: 'Beyond the Lab | Riti Sharma',
+  ogTitle: 'Beyond the Lab | Riti Sharma',
+  description: 'Creative work, travel, and side pursuits outside the research lab by Riti Sharma.',
+  ogDescription: '3D printing, riding, and travel beyond the lab.',
   ogImage: '/images/og-image.png',
   twitterCard: 'summary_large_image',
 })
