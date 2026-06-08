@@ -14,10 +14,10 @@ exports.handler = async function (event, context) {
   const message = form.message || ''
 
   const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY
-  const SENDGRID_TO_EMAIL = process.env.SENDGRID_TO_EMAIL
-  const SENDGRID_FROM_EMAIL = process.env.SENDGRID_FROM_EMAIL || 'no-reply@ritisharma.com'
+  const SENDGRID_TO_EMAIL = process.env.SENDGRID_TO_EMAIL || 'sharma.riti99@gmail.com'
+  const SENDGRID_FROM_EMAIL = process.env.SENDGRID_FROM_EMAIL || 'sharma.riti99@gmail.com'
 
-  if (!SENDGRID_API_KEY || !SENDGRID_TO_EMAIL) {
+  if (!SENDGRID_API_KEY) {
     return { statusCode: 500, body: 'Email service not configured' }
   }
 
