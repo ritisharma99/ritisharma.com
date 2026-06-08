@@ -332,7 +332,7 @@
               <label for="message" class="block text-sm font-medium text-slate-700 mb-1.5">Message</label>
               <textarea id="message" v-model="form.message" name="message" rows="4" required
                 class="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-slate-900 placeholder-slate-400 focus:border-brand-teal focus:ring-1 focus:ring-brand-teal outline-none transition-colors resize-none"
-                placeholder="Your message..." />
+                placeholder="Your message..."></textarea>
             </div>
             <button type="submit" class="btn-primary w-full justify-center disabled:opacity-60 disabled:cursor-not-allowed" :disabled="submitState === 'sending'">
               Send Message
@@ -466,7 +466,7 @@ function encodeFormData(payload: Record<string, string>) {
 async function handleSubmit() {
   submitState.value = 'sending'
   try {
-    await $fetch('/', {
+    await $fetch(route.path || '/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encodeFormData({ 'form-name': 'contact', 'bot-field': form.botField, name: form.name, email: form.email, message: form.message }),
