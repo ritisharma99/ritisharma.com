@@ -109,11 +109,11 @@
           <p class="text-slate-500 max-w-2xl mx-auto">A research talk from the University of Pennsylvania on how I study fracture and fatigue in bone.</p>
         </div>
 
-        <div class="glass-card overflow-hidden p-4 md:p-5">
-          <div class="aspect-video overflow-hidden rounded-2xl bg-slate-100">
+        <div class="glass-card overflow-hidden p-4 md:p-5 flex flex-col items-center text-center">
+          <div class="w-full max-w-3xl aspect-video overflow-hidden rounded-2xl bg-slate-100">
             <iframe
               class="h-full w-full"
-              src="https://www.youtube-nocookie.com/embed/fa7h76M140g"
+              src="https://www.youtube-nocookie.com/embed/swPisxpBgfU"
               title="University of Pennsylvania research talk by Riti Sharma"
               loading="lazy"
               referrerpolicy="strict-origin-when-cross-origin"
@@ -121,7 +121,7 @@
               allowfullscreen
             />
           </div>
-          <p class="mt-4 text-sm md:text-base text-slate-500">
+          <p class="mt-4 text-sm md:text-base text-slate-500 max-w-3xl">
             A University of Pennsylvania talk on my research in nanoscale fracture mechanics and bone fatigue.
           </p>
         </div>
