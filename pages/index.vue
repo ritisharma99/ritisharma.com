@@ -306,6 +306,21 @@
             </div>
           </div>
 
+          <!-- Static fallback for Netlify form detection when JS is disabled
+               Netlify parses static HTML at deploy time; the <noscript> form below
+               ensures the form is present in generated HTML so Netlify can detect
+               it and register the `contact` form. -->
+          <noscript>
+            <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/" class="glass-card p-8 space-y-5">
+              <input type="hidden" name="form-name" value="contact" />
+              <p style="display:none"><label>Don't fill this out if you're human: <input name="bot-field" /></label></p>
+              <p><label>Name: <input name="name" type="text" /></label></p>
+              <p><label>Email: <input name="email" type="email" /></label></p>
+              <p><label>Message: <textarea name="message" rows="4"></textarea></label></p>
+              <p><button type="submit">Send Message</button></p>
+            </form>
+          </noscript>
+
           <form
             name="contact"
             method="POST"
@@ -466,11 +481,23 @@ function encodeFormData(payload: Record<string, string>) {
 async function handleSubmit() {
   submitState.value = 'sending'
   try {
-    await $fetch(route.path || '/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encodeFormData({ 'form-name': 'contact', 'bot-field': form.botField, name: form.name, email: form.email, message: form.message }),
-    })
+    const payload = encodeFormData({ 'form-name': 'contact', 'bot-field': form.botField, name: form.name, email: form.email, message: form.message })
+
+    // Send to Netlify Forms (root) so Netlify captures the form entry,
+    // and also POST to a Netlify Function as a backup email forwarder.
+    await Promise.allSettled([
+      $fetch(route.path || '/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: payload,
+      }),
+      $fetch('/.netlify/functions/send-form', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: payload,
+      }).catch(() => null),
+    ])
+
     submitState.value = 'success'
     form.name = ''; form.email = ''; form.message = ''; form.botField = ''
   } catch {
